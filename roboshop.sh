@@ -9,7 +9,7 @@ DOMAIN_NAME="ramdevops.site"
 
 for instance in ${instance[@]}
 do
-    INSTANCE_ID=aws ec2 run-instances --image-id ami-09c813fb71547fc4f --instance-type t2.micro --security-group-ids sg-01bc7ebe005fb1cb2 --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=$INSTANCES}]" --query "Instances[0].PrivateIpAddress" --output text
+    INSTANCE_ID=aws ec2 run-instances --image-id ami-09c813fb71547fc4f --instance-type t2.micro --security-group-ids sg-01bc7ebe005fb1cb2 --tag-specifications "ResourceType=instance,Tags=[{Key=Name, Value=$instance}]" --query "Instances[0].PrivateIpAddress" --output text
     if [ instance != "fronend" ]
     then
        IP=$(aws ec2 describe-instances --instance-ids $INSTANCE_ID --query "Reservations[0].Instances[0].PrivateIpAddress" --output text)

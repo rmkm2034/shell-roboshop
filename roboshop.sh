@@ -24,13 +24,13 @@ do
   {
     "Comment": "creating or updating a record set"
     ,"Changes": [{
-      "Action"              : "CREATE"
+      "Action"              : "UPSERT"
       ,"ResourceRecordSet"  : {
         "Name"              : "'" $instance "'.'$DOMAIN_NAME'"
-        ,"Type"             : "CNAME"
-        ,"TTL"              : 120
+        ,"Type"             : "A"
+        ,"TTL"              : 1
         ,"ResourceRecords"  : [{
-            "Value"         : '$IP'
+            "Value"         : "'$IP'"
         }]
       }
     }]

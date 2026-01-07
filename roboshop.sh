@@ -30,7 +30,7 @@ do
         ,"Type"             : "CNAME"
         ,"TTL"              : 120
         ,"ResourceRecords"  : [{
-            "Value"         : "'" $IP "'"
+            "Value"         : '$IP'
         }]
       }
     }]

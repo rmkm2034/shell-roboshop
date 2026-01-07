@@ -4,7 +4,7 @@ AMI_ID="ami-09c813fb71547fc4f"
 SG_ID="sg-0f9e10b0b5e242043"
 INSTANCES=("mongodb" "redis" "mysql" "rabbitmq" "catalogue" "user" "cart" "shipping" "payment" "dispatch" "frontend")
 ZONE_ID="Z1011650191JZ4JYJQ4FE"
-DOMAIN_NAME="ramdevops.site"
+DOMAIN_NAME="devopsram.site"
 
 
 for instance in ${INSTANCES[@]}
@@ -19,8 +19,8 @@ do
     echo "$INSTANCE IP Address : $IP"    
 
     aws route53 change-resource-record-sets \
-  --hosted-zone-id $ZONE_ID \
-  --change-batch '
+    --hosted-zone-id $ZONE_ID \
+    --change-batch '
   {
     "Comment": "creating or updating a record set"
     ,"Changes": [{
